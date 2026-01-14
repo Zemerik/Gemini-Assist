@@ -1,0 +1,33 @@
+{
+  "name": "gemini-assist-native",
+  "main": "./index.node",
+  "binary": {
+    "napi-version": 8,
+    "packageName": "gemini-assist-native",
+    "path": "./",
+    "host": "https://github.com/yourusername/gemini-assist/releases/download/",
+    "remotePath": "{version}",
+    "arch": {
+      "x86_64": {
+        "libc": {
+          "musl": {
+            "filePrefix": "gemini-assist-native",
+            "fileSuffix": ".musl-x64.node"
+          },
+          "glibc": {
+            "filePrefix": "gemini-assist-native",
+            "fileSuffix": ".glibc-x64.node"
+          }
+        },
+        "default": {
+          "filePrefix": "gemini-assist-native",
+          "fileSuffix": "-x64.node"
+        }
+      },
+      "arm64": {
+        "filePrefix": "gemini-assist-native",
+        "fileSuffix": "-arm64.node"
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "name": "@zemerik/gemini-assist",
+  "version": "1.1.1-beta",
+  "description": "AI Assistant CLI tool powered by Google Gemini API (50% JS, 50% Rust)",
+  "main": "index.js",
+  "bin": {
+    "gemini-assist": "./bin/gemini-assist.js",
+    "gassist": "./bin/gemini-assist.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/gemini-assist.js",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "npm run build",
+    "install": "node scripts/postinstall.js"
+  },
+  "keywords": [
+    "gemini",
+    "ai",
+    "assistant",
+    "cli",
+    "google",
+    "chatbot",
+    "rust",
+    "napi"
+  ],
+  "author": "Hemang Yadav (Zemerik)",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "commander": "^11.1.0",
+    "dotenv": "^16.4.5",
+    "chalk": "^4.1.2",
+    "readline": "^1.3.0"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "^2.16.0"
+  },
+  "napi": {
+    "name": "gemini-assist-native",
+    "triples": {
+      "defaults": true,
+      "additional": [
+        "x86_64-apple-darwin",
+        "aarch64-apple-darwin",
+        "x86_64-pc-windows-msvc",
+        "aarch64-pc-windows-msvc",
+        "x86_64-unknown-linux-gnu",
+        "aarch64-unknown-linux-gnu",
+        "x86_64-unknown-linux-musl",
+        "aarch64-unknown-linux-musl"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
