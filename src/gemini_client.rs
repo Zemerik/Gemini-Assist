@@ -1,6 +1,5 @@
 use anyhow::{Context, Result};
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ChatMessage {
@@ -101,10 +100,13 @@ impl GeminiClient {
             .await
             .context("Failed to send request to Gemini API")?;
 
+        // Save status before consuming response body
+        let status = response.status();
+        
         // Handle errors
-        if response.status().is_client_error() {
+        if status.is_client_error() {
             let error_text = response.text().await.unwrap_or_default();
-            if error_text.contains("API_KEY") || response.status() == 401 {
+            if error_text.contains("API_KEY") || status == 401 {
                 anyhow::bail!("Invalid API key. Please check your GEMINI_API_KEY.");
             } else if error_text.contains("quota") || error_text.contains("rate limit") {
                 anyhow::bail!("API quota exceeded or rate limit reached. Please try again later.");
@@ -115,9 +117,9 @@ impl GeminiClient {
             }
         }
 
-        if !response.status().is_success() {
+        if !status.is_success() {
             let error_text = response.text().await.unwrap_or_default();
-            anyhow::bail!("HTTP error {}: {}", response.status(), error_text);
+            anyhow::bail!("HTTP error {}: {}", status, error_text);
         }
 
         let api_response: GenerateContentResponse = response

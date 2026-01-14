@@ -6,6 +6,9 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+[build-dependencies]
+napi-build = "2"
+
 [dependencies]
 napi = { version = "2", features = ["napi8", "tokio_rt", "serde-json"] }
 napi-derive = "2"

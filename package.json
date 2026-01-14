@@ -4,8 +4,8 @@
   "description": "AI Assistant CLI tool powered by Google Gemini API (50% JS, 50% Rust)",
   "main": "index.js",
   "bin": {
-    "gemini-assist": "./bin/gemini-assist.js",
-    "gassist": "./bin/gemini-assist.js"
+    "gemini-assist": "bin/gemini-assist.js",
+    "gassist": "bin/gemini-assist.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

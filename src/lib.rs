@@ -29,6 +29,7 @@ impl RustGeminiClient {
         let mut client = self.client.lock().await;
         client
             .chat(&prompt)
+            .await
             .map_err(|e| Error::new(Status::GenericFailure, format!("{}", e)))
     }
 
