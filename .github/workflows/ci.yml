@@ -57,7 +57,7 @@ jobs:
         target: ${{ matrix.target }}
 
     - name: Cache Rust dependencies
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: |
           ~/.cargo/registry
@@ -115,7 +115,7 @@ jobs:
       run: npm install -g @napi-rs/cli
 
     - name: Cache Rust dependencies
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: |
           ~/.cargo/registry
