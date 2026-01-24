@@ -2,7 +2,7 @@
 
 ## 🎉 Gemini Assist v1.1.2
 
-**Release Date:** January 2025  
+**Release Date:** 24th January 2026  
 **Version:** 1.1.2  
 **Status:** Stable Release
 
