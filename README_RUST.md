@@ -2,6 +2,8 @@
 
 This project is a **50% JavaScript, 50% Rust** hybrid implementation.
 
+**Current Version:** v1.1.2
+
 ## Architecture
 
 - **Rust (50%)**: Core Gemini API client logic, HTTP requests, and performance-critical operations

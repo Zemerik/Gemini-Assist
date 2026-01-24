@@ -1,6 +1,6 @@
 {
   "name": "@zemerik/gemini-assist",
-  "version": "1.1.1-beta",
+  "version": "1.1.2",
   "description": "AI Assistant CLI tool powered by Google Gemini API (50% JS, 50% Rust)",
   "main": "index.js",
   "bin": {

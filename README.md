@@ -101,6 +101,7 @@ In interactive mode:
 - Type your questions and press Enter
 - Type `exit`, `quit`, `bye`, or `q` to end the session
 - Type `clear` to clear the screen
+- Type `history` or `hist` to see conversation message count
 
 ### Single Query Mode
 
@@ -110,6 +111,21 @@ Ask a quick question:
 gemini-assist "What is the capital of France?"
 ```
 
+### Stdin Support (Piping)
+
+Pipe text directly to Gemini Assist for scripting and automation:
+
+```bash
+# Pipe text
+echo "What is AI?" | gemini-assist
+
+# Process file content
+cat document.txt | gemini-assist "Summarize this"
+
+# Chain with other commands
+curl -s https://api.example.com/data | gemini-assist "Analyze this JSON"
+```
+
 ### Command Line Options
 
 ```bash
@@ -117,8 +133,9 @@ gemini-assist [options] [query]
 
 Options:
   -V, --version          Show version number
+  --version-info         Show detailed version information
   -k, --api-key <key>    Gemini API key (or set GEMINI_API_KEY env variable)
-  -m, --model <model>    Gemini model to use (default: gemini-1.5-flash)
+  -m, --model <model>    Gemini model to use (default: gemini-2.5-flash)
   -i, --interactive      Start interactive chat mode
   -t, --temperature <value>  Temperature for response 0-1 (default: 0.7)
   -h, --help             Display help for command
@@ -135,6 +152,12 @@ gemini-assist -t 0.9 "Write a creative story"
 
 # Using alias
 gassist "Explain quantum computing"
+
+# Pipe text from stdin
+echo "Summarize this text" | gemini-assist
+
+# Show detailed version information
+gemini-assist --version-info
 ```
 
 ## Programmatic Usage
